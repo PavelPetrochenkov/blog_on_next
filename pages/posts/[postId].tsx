@@ -28,12 +28,15 @@ export async function getStaticPaths(context: GetStaticPaths) {
 
     return {
         paths: paths,
-        fallback: true
+        fallback: 'blocking'
     };
 }
 
 export async function getStaticProps({ params }) {
     const post: IPost = await axios.get(`https://simple-blog-api.crew.red/posts/${params.postId}`)
         .then((res) => res.data);
-    return { props: { post } }
+    return {
+        props: { post },
+        revalidate: 1,
+    }
 }
