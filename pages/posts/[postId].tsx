@@ -33,7 +33,8 @@ export async function getStaticPaths() {
     };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ store, params }) {
+    console.log(store)
     const post: Post = await axios.get(`https://simple-blog-api.crew.red/posts/${params.postId}`)
         .then((res) => res.data);
 
