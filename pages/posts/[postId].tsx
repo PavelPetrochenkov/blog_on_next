@@ -1,18 +1,18 @@
 import axios from "axios";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticPaths } from "next";
 import MainLayout from "../../components/layouts/MainLayout";
 import Post from '../../components/Post';
 import { IPost } from "../../typescript/posts";
 
 type postIdProps = {
-    post:IPost
+    post: IPost
 }
 
-export default function postId({post}:postIdProps) {
+export default function postId({ post }: postIdProps) {
     return (
         <MainLayout>
             <h1>Post #{post.id}</h1>
-            <Post post={post}/>
+            <Post post={post} />
         </MainLayout>
     )
 }
@@ -32,7 +32,7 @@ export async function getStaticPaths(context: GetStaticPaths) {
     };
 }
 
-export async function getStaticProps({params}) {
+export async function getStaticProps({ params }) {
     const post: IPost = await axios.get(`https://simple-blog-api.crew.red/posts/${params.postId}`)
         .then((res) => res.data);
     return { props: { post } }

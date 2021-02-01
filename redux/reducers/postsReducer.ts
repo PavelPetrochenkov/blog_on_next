@@ -1,39 +1,39 @@
-import { IPost, IAction, IActionP } from './../../typescript/posts';
+import { IPost } from './../../typescript/posts';
 
 type initState = {
-    posts:IPost[],
-    error:boolean
-}
+    posts: IPost[];
+    error: boolean;
+};
 
-const initialState:initState= {
-    posts:[],
-    error:false
-}
+const initialState: initState = {
+    posts: [],
+    error: false,
+};
 
 function postsReducer(state = initialState, action) {
-    switch(action.type){
-        case 'SET_POSTS':{
-            return{
+    switch (action.type) {
+        case 'SET_POSTS': {
+            return {
                 ...state,
-               posts:action.payload,
-               error:false
-            }
+                posts: action.payload,
+                error: false,
+            };
         }
-        case 'ADD_POST':{
-            return{
+        case 'ADD_POST': {
+            return {
                 ...state,
-               posts:[action.payload, ...state.posts]
-            }
+                posts: [action.payload, ...state.posts],
+            };
         }
-        case 'ERROR_POSTS':{
-            return{
+        case 'ERROR_POSTS': {
+            return {
                 ...state,
-               posts:[],
-               error:true
-            }
+                posts: [],
+                error: true,
+            };
         }
     }
     return state;
 }
 
-export default postsReducer
+export default postsReducer;

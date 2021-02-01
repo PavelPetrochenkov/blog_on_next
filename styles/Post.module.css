@@ -1,31 +1,31 @@
-    .titlePost{
+.titlePost{
     font-size: 1.3rem;
     font-weight: 600;
     padding-left: 10px;
-  }
+}
   
-  .titlePost:hover{
+.titlePost:hover{
     cursor: pointer;
     color: rgb(0, 46, 172);
-  }
+}
   
-  .bodyPost{
+.bodyPost{
     margin: 0;
     text-align: justify;
-  }
+}
   
-  .bodyPost:first-letter{
+.bodyPost:first-letter{
     padding-left: 10px;
-  }
+}
 
-  .content{
+.content{
     background-color: rgb(247, 247, 247);
     padding: 15px 15px;
     border-radius: 6px;
     margin: 20px;
-  }
+}
 
-  .hr{
+.hr{
     border: 1px solid black;
     size: 1px;
-  }
+}
