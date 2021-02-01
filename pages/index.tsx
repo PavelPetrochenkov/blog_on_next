@@ -24,7 +24,7 @@ export default function Home({ listOfPosts }: homeProps) {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
 
   const listOfPosts: Array<IPost> = await axios.get('https://simple-blog-api.crew.red/posts')
     .then((res) => res.data);
